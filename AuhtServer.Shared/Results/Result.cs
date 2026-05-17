@@ -6,11 +6,12 @@ public class Result<T> where T : class
 {
     public T? Data { get; set; }
     public List<string>? ErrorMessages { get; set; }
-    public bool IsSuccess => ErrorMessages is null || ErrorMessages.Count == 0;
-    public bool IsFail => !IsSuccess;
+    public bool IsSuccess => this.ErrorMessages is null || this.ErrorMessages.Count == 0;
+    public bool IsFail => !this.IsSuccess;
     public HttpStatusCode StatusCode { get; set; }
 
     public static Result<T> Success(T data, HttpStatusCode statusCode = HttpStatusCode.OK) => new Result<T> { Data = data, StatusCode = statusCode };
+    public static Result<T> Success(HttpStatusCode statusCode = HttpStatusCode.OK) => new Result<T> { StatusCode = statusCode };
     public static Result<T> Fail(List<string> errorMessage, HttpStatusCode statusCode = HttpStatusCode.BadRequest) => new Result<T> { ErrorMessages = errorMessage, StatusCode = statusCode };
     public static Result<T> Fail(string errorMessage, HttpStatusCode statusCode = HttpStatusCode.BadRequest) => new Result<T> { ErrorMessages =  [errorMessage], StatusCode = statusCode  };
 }

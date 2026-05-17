@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="AuhtServer.Shared/AuhtServer.Shared.csproj" />
+  <Project Path="AuthServer.API/AuthServer.API.csproj" />
+  <Project Path="AuthServer.Business/AuthServer.Business.csproj" />
+  <Project Path="AuthServer.DataAccess/AuthServer.DataAccess.csproj" />
+  <Project Path="AuthServer.Domain/AuthServer.Domain.csproj" />
+</Solution>

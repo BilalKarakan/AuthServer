@@ -1,0 +1,10 @@
+﻿namespace AuthServer.Domain.Entities;
+
+public abstract class BaseEntity
+{
+    protected BaseEntity()
+    {
+        this.Id = Guid.NewGuid().ToString();
+    }
+    public string Id { get; set; }
+}

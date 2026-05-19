@@ -7,4 +7,6 @@ public abstract class BaseEntity
         this.Id = Guid.NewGuid().ToString();
     }
     public string Id { get; set; }
+    public DateTime CreatedDate { get; set; } = null!;
+    public DateTime? UpdatedDate { get; set; }
 }

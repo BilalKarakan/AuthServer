@@ -1,11 +1,12 @@
-﻿using AuthServer.Domain.Repositories;
+﻿using AuthServer.Domain.Entities;
+using AuthServer.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
 
 namespace AuthServer.DataAccess.Repositories;
 
-public class GenericRepository<T>(ApplicationDbContext _context) : IGenericRepository<T> where T : class
+public class GenericRepository<T>(ApplicationDbContext _context) : IGenericRepository<T> where T : BaseEntity
 {
     public async Task AddAsync(T entity) => await _context.Set<T>().AddAsync(entity);
 

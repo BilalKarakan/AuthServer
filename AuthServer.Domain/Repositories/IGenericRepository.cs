@@ -1,8 +1,9 @@
-﻿using System.Linq.Expressions;
+﻿using AuthServer.Domain.Entities;
+using System.Linq.Expressions;
 
 namespace AuthServer.Domain.Repositories;
 
-public interface IGenericRepository<T> where T : class
+public interface IGenericRepository<T> where T : BaseEntity
 {
     IQueryable<T> GetList();
     Task<T> GetByIdAsync(string id);

@@ -1,7 +1,10 @@
-﻿namespace AuthServer.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AuthServer.Domain.Entities;
 
 public class RefreshToken
 {
+    [Key]
     public string UserId { get; set; } = null!;
     public string Token { get; set; } = null!;
     public DateTime CreatedAt { get; set; }

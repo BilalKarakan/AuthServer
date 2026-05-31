@@ -1,5 +1,4 @@
 ﻿using AuhtServer.Shared.Configurations;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using VaultSharp;
 using VaultSharp.V1.AuthMethods;

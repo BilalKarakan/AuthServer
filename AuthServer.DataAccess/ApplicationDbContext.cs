@@ -10,6 +10,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
+    public DbSet<Client> Clients => Set<Client>();
+    public DbSet<ClientAudience> ClientAudiences => Set<ClientAudience>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

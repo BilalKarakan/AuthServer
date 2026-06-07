@@ -67,7 +67,7 @@ public class TokenService : ITokenService
 
         var accessTokenExpire = DateTime.Now.AddMinutes(jsonData.GetProperty(AppSettings.AccessTokenExpire).GetInt32());
         var refreshTokenExpire = DateTime.Now.AddMinutes(jsonData.GetProperty(AppSettings.RefreshTokenExpire).GetInt32());
-        var securityKey = SignatureService.CreateSignature(jsonData.GetProperty(AppSettings.SecurityKey).ToString());
+        var securityKey = SignatureHelper.CreateSignature(jsonData.GetProperty(AppSettings.SecurityKey).ToString());
 
         SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
@@ -95,9 +95,9 @@ public class TokenService : ITokenService
         var data = await _vaultHelper.GetVaultKeys();
         var jsonData = (JsonElement)data.Data.Data["JWTOption"];
 
-        var accessTokenExpire = DateTime.Now.AddMinutes(jsonData.GetProperty(AppSettings.AccessTokenExpire).GetInt32());
-        var refreshTokenExpire = DateTime.Now.AddMinutes(jsonData.GetProperty(AppSettings.RefreshTokenExpire).GetInt32());
-        var securityKey = SignatureService.CreateSignature(jsonData.GetProperty(AppSettings.SecurityKey).ToString());
+        var accessTokenExpire = DateTime.UtcNow.AddMinutes(jsonData.GetProperty(AppSettings.AccessTokenExpire).GetInt32());
+        var refreshTokenExpire = DateTime.UtcNow.AddMinutes(jsonData.GetProperty(AppSettings.RefreshTokenExpire).GetInt32());
+        var securityKey = SignatureHelper.CreateSignature(jsonData.GetProperty(AppSettings.SecurityKey).ToString());
 
         SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
@@ -105,7 +105,7 @@ public class TokenService : ITokenService
             (
                 issuer: jsonData.GetProperty(AppSettings.Issuer).ToString(),
                 expires: accessTokenExpire,
-                notBefore: DateTime.Now,
+                notBefore: DateTime.UtcNow,
                 claims: GenerateClaimsForUser(user, jsonData.GetProperty(AppSettings.Audience).EnumerateArray().Select(x => x.ToString()).ToList()),
                 signingCredentials: signingCredentials
             );

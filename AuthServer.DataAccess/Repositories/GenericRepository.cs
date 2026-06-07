@@ -6,7 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace AuthServer.DataAccess.Repositories;
 
-public class GenericRepository<T>(ApplicationDbContext _context) : IGenericRepository<T> where T : BaseEntity
+public class GenericRepository<T>(ApplicationDbContext _context) : IGenericRepository<T> where T : class
 {
     public async Task AddAsync(T entity) => await _context.Set<T>().AddAsync(entity);
 

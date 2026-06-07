@@ -1,11 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AuthServer.Business.Services;
+using AuthServer.Domain.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AuthServer.Business;
 
 public static class ServiceRegistration
 {
-    public async static Task<IServiceCollection> AddServicesRegistration(this IServiceCollection services)
+    public static IServiceCollection AddServicesRegistration(this IServiceCollection services)
     {
-        return null;
+        services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped(typeof(IServiceManager<,>), typeof(ServiceManager<,>));
+        return services;
     }
 }

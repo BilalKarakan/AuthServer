@@ -71,12 +71,12 @@ public class AuthService : IAuthService
         var refreshToken = await _refreshToken.FilteredAsync(x => x.UserId == user.Id).SingleOrDefaultAsync();
 
         if (refreshToken == null) 
-            await _refreshToken.AddAsync(new RefreshToken { UserId = user.Id, Token = token.RefreshToken, CreatedAt = DateTime.Now, ExpiresAt = token.RefreshTokenExpire, IsRevoked = false, RevokedAt = null });
+            await _refreshToken.AddAsync(new RefreshToken { UserId = user.Id, Token = token.RefreshToken, CreatedAt = DateTime.UtcNow, ExpiresAt = token.RefreshTokenExpire, IsRevoked = false, RevokedAt = null });
         else
         {
             refreshToken.Token = token.RefreshToken;
             refreshToken.ExpiresAt = token.RefreshTokenExpire;
-            refreshToken.CreatedAt = DateTime.Now;
+            refreshToken.CreatedAt = DateTime.UtcNow;
             refreshToken.IsRevoked = false;
             refreshToken.RevokedAt = null;
         }
@@ -100,7 +100,7 @@ public class AuthService : IAuthService
         var token = await _tokenService.GenerateTokenAsync(user);
         existRefreshToken.Token = token.RefreshToken;
         existRefreshToken.ExpiresAt = token.RefreshTokenExpire;
-        existRefreshToken.CreatedAt = DateTime.Now;
+        existRefreshToken.CreatedAt = DateTime.UtcNow;
         existRefreshToken.IsRevoked = false;
         existRefreshToken.RevokedAt = null;
 

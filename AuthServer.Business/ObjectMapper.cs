@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace AuthServer.Business;
 
@@ -9,7 +10,9 @@ public static class ObjectMapper
         var configuration = new MapperConfiguration(cfg =>
         {
             cfg.AddProfile<MapProfile>();
-        }, null);
+        }, NullLoggerFactory.Instance);
+
+        configuration.AssertConfigurationIsValid();
 
         return configuration.CreateMapper();
     });

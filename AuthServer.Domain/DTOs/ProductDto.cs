@@ -10,4 +10,5 @@ public class ProductDto : BaseDto
     public int Quantity { get; set; }
     public string Color { get; set; } = null!;
     public string CategoryId { get; set; } = null!;
+    public CategoryDto Category { get; set; }
 }

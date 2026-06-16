@@ -11,6 +11,8 @@ public static class ServiceRegistration
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped(typeof(IServiceManager<,>), typeof(ServiceManager<,>));
         return services;
     }

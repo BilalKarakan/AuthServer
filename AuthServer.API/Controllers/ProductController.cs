@@ -9,11 +9,13 @@ namespace AuthServer.API.Controllers;
 [Authorize]
 [Route("api/[controller]")]
 [ApiController]
-public class ProductController(IServiceManager<Product, ProductDto> _serviceManager) : BaseController
+public class ProductController(IServiceManager<Product, ProductDto> _serviceManager, IProductService _productService) : BaseController
 {
-    [HttpGet] public async Task<IActionResult> GetListAsync() => CreateInstance(await _serviceManager.GetListAsync());
-    [HttpGet("{id}")] public async Task<IActionResult> GetByIdAsync([FromRoute] string id) => CreateInstance(await _serviceManager.GetByIdAsync(id));
-    [HttpPost] public async Task<IActionResult> AddAsync([FromBody] ProductDto product) => CreateInstance(await _serviceManager.AddAsync(product));
-    [HttpPut] public async Task<IActionResult> UpdateAsync([FromBody] ProductDto product) => CreateInstance(await _serviceManager.UpdateAsync(product));
-    [HttpDelete] public async Task<IActionResult> DeleteAsync([FromBody] ProductDto product) => CreateInstance(await _serviceManager.DeleteAsync(product));
+    [HttpGet("[action]")] public async Task<IActionResult> GetListAsync() => CreateInstance(await _serviceManager.GetListAsync());
+    [HttpGet("{id:string}"), Route("[action]")] public async Task<IActionResult> GetByIdAsync([FromRoute] string id) => CreateInstance(await _serviceManager.GetByIdAsync(id));
+    [HttpPost("[action]")] public async Task<IActionResult> AddAsync([FromBody] ProductDto product) => CreateInstance(await _serviceManager.AddAsync(product));
+    [HttpPut("[action]")] public async Task<IActionResult> UpdateAsync([FromBody] ProductDto product) => CreateInstance(await _serviceManager.UpdateAsync(product));
+    [HttpDelete("[action]")] public async Task<IActionResult> DeleteAsync([FromBody] ProductDto product) => CreateInstance(await _serviceManager.DeleteAsync(product));
+    [HttpGet("[action]")] public async Task<IActionResult> GetProductsWithCategoryAsync() => CreateInstance(await _productService.GetProductsWithCategoryAsync());
+    [HttpGet("{id:string}"), Route("[action]")] public async Task<IActionResult> GetProductWithCategoryAsync([FromRoute] string id) => CreateInstance(await _productService.GetProductWithCategoryAsync(id));
 }

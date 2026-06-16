@@ -12,5 +12,19 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
         builder.Property(x => x.Name).HasColumnName(nameof(Category.Name)).IsRequired().HasMaxLength(200).HasColumnType("text");
         builder.Property(x => x.CreatedDate).HasColumnName(nameof(Category.CreatedDate)).IsRequired().HasColumnType("timestamptz");
         builder.Property(x => x.UpdatedDate).HasColumnName(nameof(Category.UpdatedDate)).IsRequired(false).HasColumnType("timestamptz");
+
+        builder.HasData
+            (
+                new Category
+                {
+                    Id = "3a158e9b-bc1f-478f-9375-c70766af4169",
+                    Name = "Electronics",
+                },
+                new Category
+                {
+                    Id = "ca4c8e99-f97b-46b0-9239-f06041aa281d",
+                    Name = "Clothing",
+                }
+            );
     }
 }

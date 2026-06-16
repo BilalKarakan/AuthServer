@@ -18,4 +18,18 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         base.OnModelCreating(builder);
         builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
     }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        ChangeTracker.Entries<BaseEntity>().ToList().ForEach(entity =>
+        {
+            _ = entity.State switch
+            {
+                EntityState.Added => entity.Entity.CreatedDate = DateTime.UtcNow,
+                EntityState.Modified => entity.Entity.UpdatedDate = DateTime.UtcNow
+            };
+        });
+
+        return await base.SaveChangesAsync(cancellationToken);
+    }
 }

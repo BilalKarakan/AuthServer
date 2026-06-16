@@ -19,11 +19,15 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
                 {
                     Id = "3a158e9b-bc1f-478f-9375-c70766af4169",
                     Name = "Electronics",
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null
                 },
                 new Category
                 {
                     Id = "ca4c8e99-f97b-46b0-9239-f06041aa281d",
                     Name = "Clothing",
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null
                 }
             );
     }

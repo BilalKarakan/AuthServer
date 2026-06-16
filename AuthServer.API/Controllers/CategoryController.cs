@@ -10,9 +10,9 @@ namespace AuthServer.API.Controllers;
 public class CategoryController(IServiceManager<Category, CategoryDto> _serviceManager, ICategoryService _categoryService) : BaseController
 {
     [HttpGet("[action]")] public async Task<IActionResult> GetListAsync() => CreateInstance(await _serviceManager.GetListAsync());
-    [HttpGet("{id:string}"), Route("[action]")] public async Task<IActionResult> GetByIdAsync(string id) => CreateInstance(await _serviceManager.GetByIdAsync(id));
+    [HttpGet("{id}"), Route("[action]")] public async Task<IActionResult> GetByIdAsync(string id) => CreateInstance(await _serviceManager.GetByIdAsync(id));
     [HttpPost("[action]")] public async Task<IActionResult> AddAsync([FromBody] CategoryDto category) => CreateInstance(await _serviceManager.AddAsync(category));
     [HttpPut("[action]")] public async Task<IActionResult> UpdateAsync([FromBody] CategoryDto category) => CreateInstance(await _serviceManager.UpdateAsync(category));
     [HttpDelete("[action]")] public async Task<IActionResult> DeleteAsync([FromBody] CategoryDto category) => CreateInstance(await _serviceManager.DeleteAsync(category));
-    [HttpGet("{id:string}"), Route("[action]")] public async Task<IActionResult> GetCategoryWithProductsAsync(string id) => CreateInstance(await _categoryService.GetCategoryWithProductsAsync(id));
+    [HttpGet("{id}"), Route("[action]")] public async Task<IActionResult> GetCategoryWithProductsAsync(string id) => CreateInstance(await _categoryService.GetCategoryWithProductsAsync(id));
 }

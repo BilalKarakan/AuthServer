@@ -26,6 +26,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                     Description = "Description for Product 1",
                     Price = 10.99m,
                     Quantity = 100,
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null,
                     Color = "Red",
                     CategoryId = "3a158e9b-bc1f-478f-9375-c70766af4169"
                 },
@@ -35,6 +37,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                     Name = "Product 2",
                     Description = "Description for Product 2",
                     Price = 19.99m,
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null,
                     Quantity = 50,
                     Color = "Blue",
                     CategoryId = "3a158e9b-bc1f-478f-9375-c70766af4169"
@@ -46,6 +50,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                     Description = "Description for Product 3",
                     Price = 5.99m,
                     Quantity = 200,
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null,
                     Color = "Green",
                     CategoryId = "3a158e9b-bc1f-478f-9375-c70766af4169"
                 },
@@ -56,6 +62,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                     Description = "Description for Product 4",
                     Price = 15.49m,
                     Quantity = 75,
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null,
                     Color = "Yellow",
                     CategoryId = "ca4c8e99-f97b-46b0-9239-f06041aa281d"
                 },
@@ -66,6 +74,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                     Description = "Description for Product 5",
                     Price = 25.99m,
                     Quantity = 30,
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null,
                     Color = "Black",
                     CategoryId = "ca4c8e99-f97b-46b0-9239-f06041aa281d"
                 },
@@ -76,6 +86,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                     Description = "Description for Product 6",
                     Price = 12.99m,
                     Quantity = 120,
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null,
                     Color = "White",
                     CategoryId = "ca4c8e99-f97b-46b0-9239-f06041aa281d"
                 },
@@ -86,6 +98,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                     Description = "Description for Product 7",
                     Price = 8.99m,
                     Quantity = 150,
+                    CreatedDate = new DateTime(2026, 06, 17, 00, 00, 00, DateTimeKind.Utc),
+                    UpdatedDate = null,
                     Color = "Purple",
                     CategoryId = "ca4c8e99-f97b-46b0-9239-f06041aa281d"
                 }

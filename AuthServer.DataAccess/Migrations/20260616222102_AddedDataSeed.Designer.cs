@@ -3,6 +3,7 @@ using System;
 using AuthServer.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthServer.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260616222102_AddedDataSeed")]
+    partial class AddedDataSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,13 +116,13 @@ namespace AuthServer.DataAccess.Migrations
                         new
                         {
                             Id = "3a158e9b-bc1f-478f-9375-c70766af4169",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Electronics"
                         },
                         new
                         {
                             Id = "ca4c8e99-f97b-46b0-9239-f06041aa281d",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Clothing"
                         });
                 });
@@ -214,7 +217,7 @@ namespace AuthServer.DataAccess.Migrations
                             Id = "24e4b396-aa86-4e83-a086-1d1ce0852597",
                             CategoryId = "3a158e9b-bc1f-478f-9375-c70766af4169",
                             Color = "Red",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description for Product 1",
                             Name = "Product 1",
                             Price = 10.99m,
@@ -225,7 +228,7 @@ namespace AuthServer.DataAccess.Migrations
                             Id = "fa63ac83-a79c-4e8e-9253-1c89f71eb086",
                             CategoryId = "3a158e9b-bc1f-478f-9375-c70766af4169",
                             Color = "Blue",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description for Product 2",
                             Name = "Product 2",
                             Price = 19.99m,
@@ -236,7 +239,7 @@ namespace AuthServer.DataAccess.Migrations
                             Id = "d1f3e5b2-8c4a-4e9b-9f1c-2d3e5b2c4a4e",
                             CategoryId = "3a158e9b-bc1f-478f-9375-c70766af4169",
                             Color = "Green",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description for Product 3",
                             Name = "Product 3",
                             Price = 5.99m,
@@ -247,7 +250,7 @@ namespace AuthServer.DataAccess.Migrations
                             Id = "c5ce3e4f-b1ce-4af7-bede-d593cc7307e7",
                             CategoryId = "ca4c8e99-f97b-46b0-9239-f06041aa281d",
                             Color = "Yellow",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description for Product 4",
                             Name = "Product 4",
                             Price = 15.49m,
@@ -258,7 +261,7 @@ namespace AuthServer.DataAccess.Migrations
                             Id = "93abdee3-db79-4f9e-97eb-5f3b43b2fe43",
                             CategoryId = "ca4c8e99-f97b-46b0-9239-f06041aa281d",
                             Color = "Black",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description for Product 5",
                             Name = "Product 5",
                             Price = 25.99m,
@@ -269,7 +272,7 @@ namespace AuthServer.DataAccess.Migrations
                             Id = "c0e9c85c-70ee-4a52-9a5f-086f1c329388",
                             CategoryId = "ca4c8e99-f97b-46b0-9239-f06041aa281d",
                             Color = "White",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description for Product 6",
                             Name = "Product 6",
                             Price = 12.99m,
@@ -280,7 +283,7 @@ namespace AuthServer.DataAccess.Migrations
                             Id = "afb48da0-9443-4f53-a090-a53c144a76f1",
                             CategoryId = "ca4c8e99-f97b-46b0-9239-f06041aa281d",
                             Color = "Purple",
-                            CreatedDate = new DateTime(2026, 6, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description for Product 7",
                             Name = "Product 7",
                             Price = 8.99m,

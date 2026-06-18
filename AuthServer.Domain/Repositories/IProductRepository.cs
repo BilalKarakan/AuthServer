@@ -2,7 +2,7 @@
 
 namespace AuthServer.Domain.Repositories;
 
-public interface IProductRepository
+public interface IProductRepository : IGenericRepository<Product>
 {
     Task<Product> GetProductWithCategoryAsync(string id);
     Task<List<Product>> GetProductsWithCategoryAsync();

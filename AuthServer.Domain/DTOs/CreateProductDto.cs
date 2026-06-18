@@ -1,8 +1,6 @@
-﻿using AuthServer.Domain.Entities;
+﻿namespace AuthServer.Domain.DTOs;
 
-namespace AuthServer.Domain.DTOs;
-
-public class ProductDto
+public class CreateProductDto
 {
     public string Name { get; set; } = null!;
     public string Description { get; set; } = null!;
@@ -10,5 +8,4 @@ public class ProductDto
     public int Quantity { get; set; }
     public string Color { get; set; } = null!;
     public string CategoryId { get; set; } = null!;
-    public CategoryDto Category { get; set; }
 }

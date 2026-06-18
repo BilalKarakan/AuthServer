@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace AuthServer.API.Controllers;
 
 [Authorize]
-public class CategoryController(IServiceManager<Category, CategoryDto> _serviceManager, ICategoryService _categoryService) : BaseController
+public class CategoryController(ICategoryService _categoryService) : BaseController
 {
-    [HttpGet("[action]")] public async Task<IActionResult> GetListAsync() => CreateInstance(await _serviceManager.GetListAsync());
-    [HttpGet("{id}"), Route("[action]")] public async Task<IActionResult> GetByIdAsync(string id) => CreateInstance(await _serviceManager.GetByIdAsync(id));
-    [HttpPost("[action]")] public async Task<IActionResult> AddAsync([FromBody] CategoryDto category) => CreateInstance(await _serviceManager.AddAsync(category));
-    [HttpPut("[action]")] public async Task<IActionResult> UpdateAsync([FromBody] CategoryDto category) => CreateInstance(await _serviceManager.UpdateAsync(category));
-    [HttpDelete("[action]")] public async Task<IActionResult> DeleteAsync([FromBody] CategoryDto category) => CreateInstance(await _serviceManager.DeleteAsync(category));
-    [HttpGet("{id}"), Route("[action]")] public async Task<IActionResult> GetCategoryWithProductsAsync(string id) => CreateInstance(await _categoryService.GetCategoryWithProductsAsync(id));
+    [HttpGet("[action]")] public async Task<IActionResult> GetListAsync() => CreateInstance(await _categoryService.GetListAsync());
+    [HttpGet("[action]/{id}")] public async Task<IActionResult> GetByIdAsync(string id) => CreateInstance(await _categoryService.GetByIdAsync(id));
+    [HttpPost("[action]")] public async Task<IActionResult> AddAsync([FromBody] CreateCategoryDto category) => CreateInstance(await _categoryService.AddAsync(category));
+    [HttpPut("[action]")] public async Task<IActionResult> UpdateAsync([FromBody] UpdateCategoryDto category) => CreateInstance(await _categoryService.UpdateAsync(category));
+    [HttpDelete("[action]/{id}")] public async Task<IActionResult> DeleteAsync([FromRoute] string id) => CreateInstance(await _categoryService.DeleteAsync(id));
+    [HttpGet("[action]/{id}")] public async Task<IActionResult> GetCategoryWithProductsAsync(string id) => CreateInstance(await _categoryService.GetCategoryWithProductsAsync(id));
 }

@@ -1,0 +1,6 @@
+@AuthServerConsumer3.API_HostAddress = http://localhost:5036
+
+GET {{AuthServerConsumer3.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

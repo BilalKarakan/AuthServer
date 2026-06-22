@@ -4,4 +4,7 @@
   <Project Path="AuthServer.Business/AuthServer.Business.csproj" />
   <Project Path="AuthServer.DataAccess/AuthServer.DataAccess.csproj" />
   <Project Path="AuthServer.Domain/AuthServer.Domain.csproj" />
+  <Project Path="AuthServerConsumer1.API/AuthServerConsumer1.API.csproj" Id="00cc173e-5704-41c3-90dd-9cde64d9bc2a" />
+  <Project Path="AuthServerConsumer2.API/AuthServerConsumer2.API.csproj" Id="f182591c-fd5a-463c-83ab-b609a7b9456d" />
+  <Project Path="AuthServerConsumer3.API/AuthServerConsumer3.API.csproj" Id="bd56c1dd-c1dd-4255-81af-18be369a9359" />
 </Solution>
